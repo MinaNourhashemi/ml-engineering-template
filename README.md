@@ -37,3 +37,9 @@ ruff format .
 ## Goal
 
 This repository demonstrates best practices for organizing machine learning engineering projects for research and production environments.
+
+## ML Pipeline
+
+Typical machine learning workflow implemented in this repository:
+
+data → preprocessing → model → evaluation → logging
