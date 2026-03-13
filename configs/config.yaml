@@ -1,0 +1,11 @@
+model:
+  name: baseline_model
+  learning_rate: 0.001
+  epochs: 10
+
+data:
+  dataset: sample_dataset
+  batch_size: 32
+
+logging:
+  level: INFO

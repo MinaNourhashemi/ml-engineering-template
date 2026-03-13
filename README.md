@@ -43,3 +43,12 @@ This repository demonstrates best practices for organizing machine learning engi
 Typical machine learning workflow implemented in this repository:
 
 data → preprocessing → model → evaluation → logging
+
+## Future Extensions
+
+This template can be extended with:
+
+- Configuration system (`configs/config.yaml`)
+- Experiment tracking (MLflow)
+- Machine learning models (scikit-learn, PyTorch)
+- Data loading pipelines
