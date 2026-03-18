@@ -1,0 +1,4 @@
+id,subject_id,signal_path,signal_type,label,created_at
+1,101,data/sample1.edf,EEG,seizure,2026-03-12
+2,102,data/sample2.edf,EMG,normal,2026-03-12
+3,103,data/sample3.edf,EMG,sleep_apnea,2026-03-12

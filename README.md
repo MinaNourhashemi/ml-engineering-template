@@ -52,3 +52,16 @@ This template can be extended with:
 - Experiment tracking (MLflow)
 - Machine learning models (scikit-learn, PyTorch)
 - Data loading pipelines
+
+
+## Database and Ingestion
+
+This repository includes a simple database layer for storing signal metadata and inference logs.
+
+### Tables
+- `signals`
+- `inference_logs`
+
+### Scripts
+- `scripts/ingest_data.py` → load CSV data into the database
+- `scripts/query_data.py` → query stored records
