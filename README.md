@@ -65,3 +65,8 @@ This repository includes a simple database layer for storing signal metadata and
 ### Scripts
 - `scripts/ingest_data.py` → load CSV data into the database
 - `scripts/query_data.py` → query stored records
+
+## Run API
+
+```bash
+uvicorn src.app.api:app --reload

@@ -1,17 +1,66 @@
+# import pandas as pd
+# import time
+# import logging
+
+# from src.app.model import load_model
+# from src.app.db import get_engine, log_prediction
+
+# logging.basicConfig(
+#     level=logging.INFO,
+#     format="%(asctime)s | %(levelname)s | %(message)s",
+# )
+
+# logger = logging.getLogger(__name__)
+
+
+# @app.post("/predict", response_model=PredictionResponse)
+# def predict(data: PredictionRequest):
+#     start = time.time()
+#     logger.info(f"event=request_received input={data.dict()}")
+
+#     X = pd.DataFrame([data.dict()])
+#     preds = model.predict(X)
+#     result = preds[0]
+
+#     end = time.time()
+#     latency = (end - start) * 1000
+
+#     # 👇 این خط مهمه
+#     log_prediction(engine, data.dict(), result, latency)
+
+#     logger.info(f"event=prediction_done output={result}")
+#     logger.info(f"event=latency latency_ms={latency:.2f}")
+
+#     return {"prediction": result}
+
+
+# if __name__ == "__main__":
+#     predict()
+
+
 import pandas as pd
+import time
+import logging
 
 from src.app.model import load_model
+from src.app.db import get_engine, log_prediction
 
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
 
-def predict():
-    model = load_model()
+model = load_model()
+engine = get_engine()
 
-    X = pd.DataFrame({"feature": [101, 102, 103]})
+data = {"feature": 101}
 
-    preds = model.predict(X)
+start = time.time()
 
-    print("Predictions:", preds)
+X = pd.DataFrame([data])
+preds = model.predict(X)
+result = preds[0]
 
+latency = time.time() - start
 
-if __name__ == "__main__":
-    predict()
+log_prediction(engine, data, result, latency)
+
+logger.info(f"Prediction: {result}")

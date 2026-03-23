@@ -15,3 +15,11 @@ CREATE TABLE inference_logs (
     latency_ms REAL,
     created_at TEXT
 );
+
+CREATE TABLE IF NOT EXISTS inference_logs (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    input TEXT,
+    prediction TEXT,
+    latency_ms REAL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
